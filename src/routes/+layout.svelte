@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../app.css';
+  import { page } from '$app/stores';
   import imgLogo from '$lib/assets/logo.svg';
   import icBell from '$lib/assets/bell.svg';
   import icSearch from '$lib/assets/search.svg';
@@ -7,33 +8,37 @@
   import icUserCircle from '$lib/assets/user-circle.svg';
   import icNavTables from '$lib/assets/nav-tables.svg';
 
-  const links = [
-    { icon: icNavTables, text: 'Dashboard', href: '/' },
-    { icon: icNavTables, text: 'Tables', href: '/tables' },
-    { icon: icNavTables, text: 'Billing', href: '/billing' },
-    { icon: icNavTables, text: 'RTL', href: '/' },
-  ];
-  const links2 = [
-    { icon: icNavTables, text: 'Profile', href: '/profile' },
-    { icon: icNavTables, text: 'Sign In', href: '/sign-in' },
-    { icon: icNavTables, text: 'Sign Up', href: '/sign-up' },
-  ];
+  $: pathname = $page.url.pathname;
+
+  $: navClass = (href: string) => {
+    const c = 'w-[13.6875rem] flex items-center gap-[0.75rem] px-[1rem] py-[0.75rem] text-[0.875rem]';
+    return pathname === href ? `${c} bg-white rounded` : c;
+  };
 </script>
 
 <div class="app-grid bg-[#F8F9FA] text-[#67748E] min-h-screen">
   <aside class="flex flex-col p-[2rem]">
-    <img alt="Logo" src={imgLogo} />
+    <img class="w-[10.375rem]" alt="Logo" src={imgLogo} />
     <nav class="flex flex-col mt-[2rem]">
-      {#each links as l}
-        <a href={l.href} class="flex items-center gap-[0.75rem] px-[1rem] py-[0.75rem]">
-          <img alt="icon" class="w-[2rem]" src={l.icon} />
+      {#each [
+        { icon: icNavTables, text: 'Dashboard', href: '/' },
+        { icon: icNavTables, text: 'Tables', href: '/tables' },
+        { icon: icNavTables, text: 'Billing', href: '/billing' },
+        { icon: icNavTables, text: 'RTL', href: '/rtl' },
+      ] as l}
+        <a href={l.href} class={navClass(l.href)}>
+          <img alt="icon" class="w-[2rem] shadow-md" src={l.icon} />
           {l.text}
         </a>
       {/each}
-      <h3 class="my-[1rem] font-[700] uppercase">Account Pages</h3>
-      {#each links2 as l}
-        <a href={l.href} class="flex items-center gap-[0.75rem] px-[1rem] py-[0.75rem]">
-          <img alt="icon" class="w-[2rem]" src={l.icon} />
+      <h3 class="my-[1rem] text-[0.8125rem] font-[700] uppercase">Account Pages</h3>
+      {#each [
+        { icon: icNavTables, text: 'Profile', href: '/profile' },
+        { icon: icNavTables, text: 'Sign In', href: '/sign-in' },
+        { icon: icNavTables, text: 'Sign Up', href: '/sign-up' },
+      ] as l}
+        <a href={l.href} class={navClass(l.href)}>
+          <img alt="icon" class="w-[2rem] shadow-md" src={l.icon} />
           {l.text}
         </a>
       {/each}
