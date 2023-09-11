@@ -15,8 +15,8 @@
   <UpdateCard title="Sales" value="$103,430" rate="+5%" icon={icSales} />
 </section>
 <section class="flex items-stretch gap-[1.5rem] mb-[1.5rem] mr-[1.5rem]">
-  <div class="bg-white rounded-[1rem] p-[1rem] flex items-stretch justify-between gap-[2rem] shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
-    <div class="flex flex-col justify-between">
+  <div class="bg-white rounded-[1rem] p-[1rem] flex items-stretch justify-between gap-[3rem] shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
+    <div class="flex flex-col justify-between w-[19.85rem]">
       <div>
         <h3 class="text-[#67748E] text-[1rem] font-[600] mb-[0.25rem]">Built by developers</h3>
         <h2 class="text-[#252F40] text-[1.25rem] font-[700] mb-[0.5rem]">Soft UI Dashboard</h2>
@@ -26,7 +26,7 @@
     </div>
     <img class="h-[13.125rem]" src={icRocket} alt="icon rocket" />
   </div>
-  <div class="bg-white rounded-[1rem] p-[1rem] flex items-stretch shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
+  <div class="flex-1 bg-white rounded-[1rem] p-[1rem] flex items-stretch shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
     <div class="flex flex-col justify-between rounded-[1rem] p-[1rem] bg-cover" style="background-image: linear-gradient(0, #252F40BF, #252F40BF), url('{bgPersonWork}')">
       <div>
         <h3 class="text-white text-[1.25rem] font-[700] mb-[0.75rem]">Work with the rockets</h3>
