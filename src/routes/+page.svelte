@@ -9,10 +9,30 @@
   import icScoreClicks from '$lib/assets/score-clicks.png';
   import icScoreSales from '$lib/assets/score-sales.png';
   import icScoreItems from '$lib/assets/score-items.png';
+  import icAtlassian from '$lib/assets/logo-atlassian.svg';
+  import icInvision from '$lib/assets/logo-invision.svg';
+  import icJira from '$lib/assets/logo-jira.svg';
+  import icShopify from '$lib/assets/logo-shopify.svg';
+  import icSlack from '$lib/assets/logo-slack.svg';
+  import icSpotify from '$lib/assets/logo-spotify.svg';
+
+  import face1 from '$lib/assets/face-1.png';
+  import face2 from '$lib/assets/face-2.png';
+  import face3 from '$lib/assets/face-3.png';
+  import face4 from '$lib/assets/face-4.png';
+
+  import icBellGreen from '$lib/assets/bell-green.svg';
+  import icHtml5 from '$lib/assets/html5.svg';
+  import icCart from '$lib/assets/cart.svg';
+  import icCreditCard from '$lib/assets/credit-card.svg';
+  import icAccessKey from '$lib/assets/access-key.svg';
+  import icMoneyCoins from '$lib/assets/money-coins.svg';
 
   import UpdateCard from './UpdateCard.svelte';
   import Arrow from '$lib/icons/Arrow.svelte';
 	import ScoresItem from './ScoresItem.svelte';
+
+  const faces = [face1, face2, face3, face4];
 </script>
 
 <section class="flex gap-[1.5rem] mb-[1.5rem] mr-[1.5rem]">
@@ -71,5 +91,84 @@
       4% more in 2021
     </p>
     <div class="h-[17rem] mt-[4rem] mb-[1rem] border-[0.0625rem] border-[#CB0C9F] rounded-[1rem]" />
+  </div>
+</section>
+<section class="flex items-stretch gap-[1.5rem] mb-[2.5rem] mr-[1.5rem]">
+  <div class="flex-1 bg-white rounded-[1rem] p-[1.5rem] shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
+    <h3 class="text-[#252F40] text-[1rem] font-[700] mb-[0.5]">Projects</h3>
+    <p class="text-[#67748E] text-[0.875rem] font-[600] mb-[1.75rem]">
+      done this month
+      <span class="text-[#17C1E8] font-[700]">40%</span>
+    </p>
+    <table class="w-[100%]">
+      <thead>
+        <tr>
+          {#each ['Companies', 'Members', 'Budget', 'Completion'] as i}
+            <th class="py-[0.75rem] uppercase text-[#8392AB] text-[0.875rem] font-[700] text-left">{i}</th>
+          {/each}
+        </tr>
+      </thead>
+      <tbody>
+        {#each [
+          { icon: icShopify, company: 'Soft UI Shopify Version', members: [1, 4, 2, 3], budget: '$14,000', completion: 60 },
+          { icon: icAtlassian, company: 'Progress Track', members: [4, 3], budget: '$3,000', completion: 10 },
+          { icon: icSlack, company: 'Fix Platform Errors', members: [1, 2, 3], budget: 'Not Set', completion: 100 },
+          { icon: icSpotify, company: 'Launch new Mobile App', members: [1, 2], budget: '$20,600', completion: 100 },
+          { icon: icJira, company: 'Add the New Landing Page', members: [1, 4, 2, 3], budget: '$4,000', completion: 80 },
+          { icon: icInvision, company: 'Redesign Online Store', members: [1, 4, 3], budget: '$2,000', completion: -1 },
+        ] as i}
+          <tr class="border-t-[0.0625rem] border-t-[#F5F5F5]">
+            <td class="py-[1rem] text-[#252F40] text-[0.875rem] font-[600]">
+              <img class="w-[1.5rem] mr-[1.5rem] inline-block" src={i.icon} alt="logo" />
+              {i.company}
+            </td>
+            <td class="py-[1rem]">
+              {#each i.members as j}
+                <img class="h-[1.3125rem] rounded-full inline-block mr-[-0.625rem]" src={faces[j - 1]} alt="user" />
+              {/each}
+            </td>
+            <td class="py-[1rem] text-[#8392AB] text-[0.75rem] font-[600]">
+              {i.budget}
+            </td>
+            <td class="py-[1rem] text-[#67748E] text-[0.875rem] font-[400]">
+              {i.completion < 0 ? 'cancel' : `${i.completion}%`}
+              <div class="flex items-center rounded-[1rem] w-[7.5rem] h-[0.1875rem] mt-[0.25rem]" style="background-color: {i.completion < 0 ? '#F5222D' : '#E9ECEF'};">
+                <span class="h-[100%]" style="flex: {i.completion}; background-color: {i.completion === 100 ? '#52C41A' : '#1890FF'}" />
+                <span class="h-[100%]" style="flex: {100 - i.completion}" />
+              </div>
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
+  <div class="w-[22.25rem] bg-white rounded-[1rem] p-[1.5rem] shadow-[0_1.25rem_1.6875rem_0_rgba(0,0,0,0.05)]">
+    <h3 class="text-[#252F40] text-[1rem] font-[700] mb-[0.5]">Orders History</h3>
+    <p class="text-[#252F40] text-[0.875rem] font-[400] flex items-center gap-[0.25rem] mb-[2.3rem]">
+      <Arrow cls="rotate-[270deg] w-[0.75rem]" fill="#82D616" />
+      24% this month
+    </p>
+    <ul>
+      {#each [
+        { icon: icBellGreen, title: '$2,400 - Redesign store', date: '09 JUN 7:20 PM' },
+        { icon: icHtml5, title: 'New order #3654323', date: '08 JUN 12:20 PM' },
+        { icon: icCart, title: 'Company server payments ', date: '04 JUN 3:10 PM' },
+        { icon: icCreditCard, title: 'New card added for order #4826321', date: '02 JUN 2:45 PM' },
+        { icon: icAccessKey, title: 'Unlock folders for development', date: '18 MAY 1:30 PM' },
+        { icon: icMoneyCoins, title: 'New order #46282344', date: '14 MAY 3:30 PM' },
+      ] as i}
+        <li class="
+          flex items-start gap-[1rem] mb-[1.3rem] relative
+          after:content-[''] after:absolute after:w-[0.125rem] after:h-[2.2rem] after:left-[0.35rem] after:top-[1.65rem] after:bg-[#F5F5F5]
+        ">
+          <img class="w-[0.875rem] mt-[0.35rem]"
+            src={i.icon} alt="icon" />
+          <div>
+            <h4 class="text-[#252F40] text-[0.875rem] font-[600] mb-[0.25rem]">{i.title}</h4>
+            <p class="text-[#67748E] text-[0.75rem] font-[600]">{i.date}</p>
+          </div>
+        </li>
+      {/each}
+    </ul>
   </div>
 </section>
