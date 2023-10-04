@@ -16,8 +16,8 @@
   };
 </script>
 
-<div class="app-grid bg-[#F8F9FA] text-[#67748E] min-h-screen">
-  <aside class="flex flex-col p-[2rem]">
+<div class="app-grid bg-[#F8F9FA] text-[#67748E] max-h-screen">
+  <aside class="flex flex-col p-[2rem] pr-[1rem] h-[100vh]">
     <img class="w-[10.375rem]" alt="Logo" src={imgLogo} />
     <nav class="flex flex-col mt-[2rem]">
       {#each [
@@ -44,7 +44,7 @@
       {/each}
     </nav>
   </aside>
-  <header class="flex items-center justify-between py-[1.25rem]">
+  <header class="flex items-center justify-between py-[1.25rem] pl-[1rem]">
     <div>
       <p class="text-[0.875rem] mb-[0.25rem]">
         Pages / <span class="text-[#252F40]">Dashboard</span>
@@ -52,9 +52,10 @@
       <h2 class="text-[1rem] text-[#252F40] font-[700]">Dashboard</h2>
     </div>
     <div class="flex justify-end items-center gap-[1rem] mr-[2rem]">
-      <div class="flex items-center gap-[0.5rem] bg-[#FFF] border-[#D2D6DA]">
+      <div class="flex items-center gap-[0.5rem] bg-[#FFF] border-[#D2D6DA] rounded-[0.5rem]
+        w-[13.125rem] p-[0.75rem] text-[0.875rem] text-[#252F4080] font-[400]" contenteditable>
         <img alt="icon search" src={icSearch} />
-        <input placeholder="Type here..." />
+        Type here...
       </div>
       <a href="/sign-in" class="flex items-center gap-[0.25rem]">
         <img alt="icon user" src={icUserCircle} />
@@ -64,14 +65,14 @@
       <img alt="icon bell" src={icBell} />
     </div>
   </header>
-  <main>
+  <main class="pl-[1rem] overflow-auto">
     <slot />
   </main>
-  <footer class="flex justify-between py-[1.25rem]">
-    <p>
+  <footer class="flex justify-between py-[1.25rem] pl-[1rem]">
+    <p class="text-[0.875rem] text-[#6B7891] font-[400]">
       &copy; 2021, made by <strong>Creative Tim</strong> for a better web.
     </p>
-    <ul class="flex items-center gap-[2rem] mr-[2rem]">
+    <ul class="flex items-center gap-[2rem] mr-[2rem] text-[0.875rem] text-[#6B7891] font-[400]">
       <li>Creative Tim</li>
       <li>About Us</li>
       <li>Blog</li>
